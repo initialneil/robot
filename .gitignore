@@ -1,6 +1,11 @@
 .idea
 *.pyc
+*.pyd
 __pycache__
+build
+dist
+pointnet2.egg-info
+data
 weights
 geomloss
 flownet3d.pytorch

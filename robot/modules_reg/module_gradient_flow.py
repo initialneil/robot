@@ -55,10 +55,10 @@ def wasserstein_barycenter_mapping(cur_source, target, gemloss_setting):
     ]
     geomloss = obj_factory(geom_obj)
     attr = gemloss_setting[("attr", "pointfea", "points/pointfea/landmarks")]
-    attr1 = getattr(cur_source, attr)
-    attr2 = getattr(target, attr)
-    points1 = cur_source.points
-    points2 = target.points
+    attr1 = getattr(cur_source, attr).type(torch.float32)
+    attr2 = getattr(target, attr).type(torch.float32)
+    points1 = cur_source.points.type(torch.float32)
+    points2 = target.points.type(torch.float32)
     device = points1.device
     sqrt_const2 = torch.tensor(np.sqrt(2), dtype=torch.float32, device=device)
     weight1 = cur_source.weights[:, :, 0]  # remove the last dim
